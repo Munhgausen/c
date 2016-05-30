@@ -1,0 +1,20 @@
+//Глава 4 Задание 2
+
+#include <iostream>
+#include<string>
+using namespace std;
+
+int main() {
+	string first_name;
+	string second_name = "C++owboy";
+	cout << "Howdy! I'm "<<second_name;
+	cout << "! What's your name? \n";
+	cin >> first_name;
+	cout << "Well, " << first_name << ", your name has ";
+	cout << first_name.size() << " letters and is stored \n";
+	cout << "in an array of " << sizeof(first_name) << " bytes. \n";
+	cout << "Your initial is " << first_name[0] << ". \n";
+	second_name[3] = '\0';
+	cout << "Here are the first 3 characters of my name: "<<second_name;
+		return 0;
+}
