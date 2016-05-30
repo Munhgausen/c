@@ -27,7 +27,7 @@ int main() {
 
 		//вывод
 		cout << "Name: ";
-	cout << x.first_name<<" "<<x.last_name<<endl;
+	        cout << x.first_name<<" "<<x.last_name<<endl;
 		cout << "Grade: ";
 		cout << x.grade_first<<endl;
 		cout << "Age: ";
