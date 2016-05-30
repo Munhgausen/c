@@ -1,7 +1,7 @@
 //Глава 4, задание 1
 
 #include <iostream>
-#include<string>
+#include <string>
 using namespace std;
 
 struct MyStruct
@@ -23,13 +23,11 @@ int main() {
 		cout << "What is your age?";
 		cin >> x.age;
 
-		//Расчет оценки
-
 		//вывод
 		cout << "Name: ";
 	        cout << x.first_name<<" "<<x.last_name<<endl;
 		cout << "Grade: ";
-		cout << x.grade_first<<endl;
+		cout << char(x.grade_first+1)<<endl;
 		cout << "Age: ";
 		cout << x.age;
 
