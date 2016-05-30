@@ -1,0 +1,37 @@
+//Глава 4, задание 1
+
+#include <iostream>
+#include<string>
+using namespace std;
+
+struct MyStruct
+{
+	string first_name;
+	string last_name;
+	char grade_first;
+	int age;
+} x;
+
+int main() {
+	//Cчитывание
+	cout << "What is your first name?";
+	cin >> x.first_name;
+	cout << "What is your last name?";
+	cin >> x.last_name;
+	cout << "What letter grade do you deserve?";
+	cin >> x.grade_first;
+		cout << "What is your age?";
+		cin >> x.age;
+
+		//Расчет оценки
+
+		//вывод
+		cout << "Name: ";
+		cout << x.first_name<<endl;
+		cout << "Grade: ";
+		cout << x.grade_first<<endl;
+		cout << "Age: ";
+		cout << x.age;
+
+		return 0;
+}
