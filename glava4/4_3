@@ -1,0 +1,22 @@
+//Глава 4 Задание 3
+
+#include <iostream>
+#include<string>
+using namespace std;
+
+int main() {
+	char first_name[15];
+	char last_name[15];
+	char otvet[40];
+	cout << "Enter your first name: ";
+	cin.getline(first_name, 15);
+	cout << "Enter your last name: ";
+	cin.getline(last_name, 15);
+	strcpy_s(otvet,first_name);
+	strcat_s(otvet,", ");
+	strcat_s(otvet, last_name);
+	cout << otvet;
+
+
+		return 0;
+}
