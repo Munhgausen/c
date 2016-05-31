@@ -1,0 +1,28 @@
+//4 глава Задание 8
+
+#include <iostream>
+#include<string>
+using namespace std;
+
+struct pizza
+{
+	string name;
+	double diametr;
+	int ves;
+};
+
+int main() {
+	setlocale(0, "russian");
+	pizza *x = new pizza ;
+		;
+	cout << "Введите название пиццы: ";
+	cin >> x->name;
+	cout << "Введите диаметр: ";
+	cin >> x->diametr;
+	cout << "Укажите вес: ";
+	cin >> x->ves;
+
+	cout << endl;
+	cout << "Имя: " << x->name << " Диаметр: " << x->diametr << " Вес: " << x->ves;
+		return 0;
+}
