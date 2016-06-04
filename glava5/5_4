@@ -1,0 +1,22 @@
+//Глава 5 задание 4
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	double kleo = 100;
+	double dafna = 100;
+	double ishod_dafna = 100;
+	int let = 0; //счетчик
+
+	while (kleo<=dafna) {
+		cout << "god:" << let<<endl;
+		dafna = dafna+(0.10 * ishod_dafna);
+		cout << "dafna"<<dafna<<endl;
+		kleo = kleo+(0.05 * kleo);
+		cout << "kleo: " << kleo<<endl;
+		let++;
+	}
+	cout << let;
+	return 0;
+}
