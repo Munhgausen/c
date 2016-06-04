@@ -1,0 +1,19 @@
+//Глава 5 задание 3
+
+#include <iostream>
+using namespace std;
+const int ArSize = 101;
+
+
+int main() {
+	setlocale(0, "russian");
+	int x=-1;
+	int summ=0;
+	do {
+		cout << "Введите число, для завершения программы введите 0: ";
+		cin >> x;
+		summ += x;
+	} while (x != 0);
+	cout << "Сумма всех элементов: " <<summ;
+	return 0;
+}
