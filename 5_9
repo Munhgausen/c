@@ -1,0 +1,23 @@
+//Глава  5 задание 9
+
+#include <iostream>
+#include<string>
+#include<cstring>
+using namespace std;
+
+int main() {
+	setlocale(0, "russian");
+	string slovo;
+	int otvet=0;
+	cout << "Вводите слова (для завершения введите слово done): "<<endl;
+	do
+	{
+		cin >> slovo;
+		otvet++;
+	} while (slovo!="done");
+
+		cout << "Кол-во слов: " << otvet-1;
+
+
+	return 0;
+}
