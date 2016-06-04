@@ -1,0 +1,22 @@
+//Глава 5 задание 5
+
+#include <iostream>
+#include<string>
+#include<vector>
+using namespace std;
+
+int main() {
+	setlocale(0, "russian");
+	vector <string> srok(12);
+	int summ = 0;
+	int temp;
+srok= { "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь" };
+	for (int i = 0; i < 12;i++) {
+		cout << "Количество проданных книг за " << srok[i] << ": ";
+		cin >> temp;
+		summ += temp;
+	}
+	cout << endl;
+	cout << "Количество проданных книг за год: " << summ;
+	return 0;
+}
