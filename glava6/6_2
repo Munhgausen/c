@@ -1,0 +1,32 @@
+//Глава 6 задание 2
+
+#include <iostream>
+using namespace std;
+const int max = 10;
+
+
+int main() {
+	int i = 0;
+	double  dengi[max];
+	setlocale(0, "russian");
+	cout << "Введит кол-во пожертвований: ";
+	double sredn=0;
+	while (i<max&&(cin >> dengi[i]))
+		i++;
+
+	sredn = dengi[0];
+	for (int j = 1; j<i; j++)
+		sredn += dengi[j];
+
+	sredn = sredn / i;
+	int bolche=0;
+	for (int j = 1; j < i; j++) {
+		if (dengi[j] > sredn)
+			bolche++;
+	}
+		
+	cout << "Среднее кол-во:  "<<sredn<<endl;
+	cout << "Кол-во пожертвований преышающих среднее значение: " << bolche;
+
+	return 0;
+}
