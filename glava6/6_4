@@ -1,0 +1,66 @@
+//Глава 6 задание 4
+
+#include <iostream>
+using namespace std;
+const int strsize = 20;
+const int n = 3;
+
+struct bop {
+	char fullname[strsize]; //реальное имя
+	char title[strsize]; //должность
+	char bopname[strsize]; //секретное имя БОП
+	int preference; //0=полное имя, 1=титул, 2=имя БОП
+};
+
+
+int main() {
+	setlocale(0, "russian");
+	bop chislo[n] = { "Александр Иванов","Дизйнер","Бомбер",0,
+	"Мария Петрова","Художник","Елка",1,
+		"Сергей Николаев","Программист","Кодер",2
+	};
+
+	cout << "Benevolent Order of Programmers Report\n"
+		<< "a. display by name\t" << "b. display by title\n"
+		<< "c. display by bopname\t" << "d. display by preference\n"
+		<< "q. quit\n";
+	char choise;
+	while (cin >> choise)
+	{
+		if (choise == 'a' || choise == 'A') {
+			for (int i = 0; i < n; i++) {
+				cout << chislo[i].fullname<<endl;
+			}
+			continue;
+		}
+		else if (choise == 'b' || choise == 'B') {
+			for (int i = 0; i < n; i++) {
+				cout << chislo[i].title << endl;
+			}
+			continue;
+		}
+		else if (choise == 'c' || choise == 'C') {
+			for (int i = 0; i < n; i++) {
+				cout << chislo[i].bopname << endl;
+			}
+			continue;
+		}
+		else if (choise == 'd' || choise == 'D') {
+			for (int i = 0; i < n; i++) {
+				if(chislo[i].preference==0)
+				cout << chislo[i].fullname << endl;
+				else if (chislo[i].preference == 1)
+					cout << chislo[i].title << endl;
+				else if (chislo[i].preference == 2)
+					cout << chislo[i].bopname<< endl;
+			}
+
+			continue;
+		}
+		else if (choise == 'q' || choise == 'Q')
+			cout << "Bye!";
+			break;
+	}
+	
+	return 0;
+}
