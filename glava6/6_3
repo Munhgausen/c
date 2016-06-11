@@ -1,0 +1,35 @@
+//Глава 6 задание 3
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	cout << "Please enter one of the following choises: " << endl;
+	cout << "c) carnivore \t" << "p)pianist\n"
+	<< "t)tree\t"<<"g)game\n";
+	char my_choise;
+	while (cin >> my_choise) {
+		//cin >> my_choise;
+		if (my_choise == 'c' || my_choise == 'C') {
+			cout << "carnivore? Really?";
+			break;
+		}
+		else if (my_choise == 'p' || my_choise == 'P') {
+			cout << "a maple is a tree";
+			break;
+		}
+		else if (my_choise == 't' || my_choise == 'T') {
+			cout << "great choice!";
+			break;
+		}
+		else if (my_choise == 'g' || my_choise == 'G') {
+			cout << "very well :) ";
+			break;
+		}
+		else {
+			cout << "Please enter a c,p,t, or g: ";
+			continue;
+		}
+	}
+	return 0;
+}
