@@ -1,0 +1,40 @@
+//Глава 6 задание 5
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+
+int main() {
+	setlocale(0, "russian");
+	cout << "Добро пожаловать в программу для вычисления размера налога в королевстве Нейтирония!\n"
+	     << "Введите размер дохода: ";
+	
+		double summ;
+		double what = 10000 * 0.10;
+		double what35 = 20000 * 0.15;
+		double nalog = 0;
+		string tekst = "Введите размер дохода: ";
+		while (cin >> summ&&summ>0) {
+			if (summ <= 5000) {
+				nalog = 0;
+				cout << "Сумма к уплате: " << nalog<<endl<<tekst;
+			}
+			else if (summ > 5000 && summ <= 15000) {
+				nalog = (summ - 5000)*0.10;
+				cout << "Сумма к уплате: " << nalog<<endl<<tekst;
+			}
+			else if (summ > 15000 && summ <= 35000) {
+				nalog = (summ - 15000)*0.15 + what;
+				cout << "Сумма к уплате: " << nalog<<endl<<tekst;
+			}
+			else if (summ > 35000) {
+				nalog = (summ - 35000)*0.20 + what + what35;
+				cout << "Сумма к уплате: " << nalog<<endl<<tekst;
+			}
+	}
+
+		cout << "bye!";
+
+	return 0;
+}
