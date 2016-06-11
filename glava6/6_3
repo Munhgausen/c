@@ -9,7 +9,6 @@ int main() {
 	<< "t)tree\t"<<"g)game\n";
 	char my_choise;
 	while (cin >> my_choise) {
-		//cin >> my_choise;
 		if (my_choise == 'c' || my_choise == 'C') {
 			cout << "carnivore? Really?";
 			break;
