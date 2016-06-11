@@ -1,0 +1,29 @@
+Глава 6 задание 1
+
+//данная версия не является правильной
+
+#include <iostream>
+#include<string>
+#include <cctype>
+using namespace std;
+
+
+
+
+int main() {
+	setlocale(0, "russian");
+	cout << "Введите слова (q для выхода из программы):";
+		string words;
+		char ch;
+		cin >> ch;
+		while (ch[y] != '@') {
+			cin >> ch;
+			//обработка
+			if (isupper(ch[y]))               // если текущий символ - прописной
+				ch = tolower(ch);
+			else if (islower(ch[y]))               // если текущий символ строчная буква
+				ch = toupper(ch);         // преобразовать символ в заглавную букву
+			cout << ch;
+		}
+	return 0;
+}
