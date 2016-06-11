@@ -1,0 +1,42 @@
+//Глава 6 задание 6
+
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
+
+struct mecenat {
+	string name;
+	double summ;
+};
+
+
+int main() {
+	setlocale(0, "russian");
+	cout << "Добро пожаловать в Общество Влиятельных Лиц\n"
+		<< "Введите кол-во меценатов:";
+	int n;
+	cin >> n;
+	vector <mecenat> basic(n);
+	//Заполнение
+	for (int i = 0; i < n; i++) {
+		cout << "Введите имя мецената: ";
+		cin>>basic[i].name;
+		cout << "Введите размер пожертвования: ";
+		cin >> basic[i].summ;
+	}
+
+	//Вывод
+	cout << "Grand Patrons\n";
+	for (int i = 0; i < n; i++) {
+		if (basic[i].summ >= 10000)
+			cout << basic[i].name << " " << basic[i].summ << endl;
+	}
+
+	cout << "Patrons\n";
+	for (int i = 0; i < n; i++) {
+		if (basic[i].summ < 10000)
+			cout << basic[i].name << " " << basic[i].summ << endl;
+	}
+	return 0;
+}
