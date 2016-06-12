@@ -1,0 +1,63 @@
+//Глава 7 Задание 2
+/*
+Напишите программу, которая запрашивает у пользователя 10 результатов игры
+в гольф, сохраняя их в массиве. При этом необходимо обеспечить возможность
+прекращения ввода до ввода всех 10 результатов. Программа должна отобразить
+все результаты в одной строке и сообщить их среднее значение. Реализуйте
+ввод, отображение и вычисление среднего в трех отдельных функциях,
+работающих с массивами.
+*/
+#include <iostream>
+using namespace std;
+
+int vvod(int,int); //Прототип функции vvod
+void otobr(int,int);
+void sredn(int, int);
+
+int vvod(int schet[], int limit) { //передаем указатель массива
+	for (int i = 0; i < limit;i++){
+	cout << "Введите результат: ";
+	cin >> schet[i];
+	if (!cin)
+		cin.clear();//Очистка буфера
+		continue; //запуск цикла очистки сначала
+	cout << "Bad input. \n" << endl;
+	break; //прерывание всего цикла for
+	}
+	return 0;
+}
+
+void otobr(int schet[], int limit) {
+	for (int i = 0; i < limit; i++) {
+		cout << schet[i] << " ";
+	}
+}
+
+	void sredn(int schet[], int limit) {
+		double temp=0;
+		for (int i = 0; i < limit; i++) {
+			temp+=schet[i];
+		}
+		temp = temp / limit;
+		cout << "Среднее значение: " << temp;
+	}
+
+int main() {
+	setlocale(0, "russian");
+	int schet[10];
+	int limit;
+	do {
+		cout << "Введите кол-во результатов прошедших игр(не более 10): ";
+		cin >> limit;
+		if (limit > 10 || limit < 0) {
+			cin.clear();
+			cout << "Bad input. \n" << endl;
+			continue; //запуск цикла очистки сначала
+		}
+	} while (limit>10||limit<0);
+
+	vvod(schet, limit);
+	otobr(schet, limit);
+	sredn(schet, limit);
+	return 0;
+}
