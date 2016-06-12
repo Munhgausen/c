@@ -1,0 +1,32 @@
+//Глава 7 Задание 3
+
+//Не доработанный вариант!!
+
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main() {
+	setlocale(0, "russian");
+	cout << "Введите кол-во коробок: ";
+	int x;
+	cin >> x;
+	vector <box> white_box(x);
+	//box white_box[5];
+	for (int i = 0; i < 5; i++) {
+		cout << "Введите название коробки #"<<i+1<<": ";
+		cin >> white_box[i].maker;
+		cout << "Введите ширину коробки " << white_box[i].maker << ": ";
+		cin >> white_box[i].width;
+		cout << "Введите длину коробки " << white_box[i].maker << ": ";
+		cin >> white_box[i].lenght;
+		cout << "Введите объем коробки " << white_box[i].maker << ": ";
+		cin >> white_box[i].volume;
+	}
+	cout << "Ввод успешно завершен" << endl;
+	cout << "Введите номер необходимой коробки для получения информации: ";
+	int a;
+	cin >> a;
+	return 0;
+}
