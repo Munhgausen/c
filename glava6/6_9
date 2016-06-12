@@ -1,0 +1,78 @@
+//Глава 6 Задание 9
+/*
+Выполните упражнение 6, но измените его так, чтобы данные можно было
+получать из файла. Первым элементом файла должно быть количество меценатов,
+а остальная часть состоять из пар строк, в которых первая строка содержит
+имя, а вторая — сумму пожертвования. То есть файл должен выглядеть
+примерно так:
+4
+Sam Stone
+2000
+Freida Flass
+100500
+Tammy Tubbs
+5000
+Rich Raptor
+55000
+*/
+
+
+#include <iostream>
+#include<fstream>
+#include <string>
+#include <vector>
+using namespace std;
+
+
+
+
+struct mecenat {
+	string name;
+	double summ;
+};
+
+
+int main() {
+	
+	setlocale(0, "russian");
+	ifstream OutFile;
+	cout << "Добро пожаловать в Общество Влиятельных Лиц\n";
+	OutFile.open("mecenat.txt", ios_base::in);
+	int n;
+	OutFile >> n;
+	cout << endl;
+	vector <mecenat> basic(n);
+	int grand_patron = 0;
+	int patron = 0;
+	//Заполнение
+	for (int i = 0; i < n; i++) {
+		OutFile.ignore();
+		getline(OutFile, basic[i].name);
+		OutFile >> basic[i].summ;
+		if (basic[i].summ >= 10000)
+			grand_patron++;
+		else
+			patron++;
+	}
+
+	//Вывод
+	cout << "Grand Patrons\n";
+	if (grand_patron > 0) {
+		for (int i = 0; i < n; i++) {
+			if (basic[i].summ >= 10000)
+				cout << basic[i].name << " " << basic[i].summ << endl;
+		}
+	}
+	else
+		cout << "none" << endl;
+
+	cout << "Patrons\n";
+	if (patron > 0) {
+		for (int i = 0; i < n; i++) {
+			if (basic[i].summ < 10000)
+				cout << basic[i].name << " " << basic[i].summ << endl;
+		}
+	}
+	else cout << "none";
+	return 0;
+}
