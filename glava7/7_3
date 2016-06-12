@@ -7,6 +7,23 @@
 
 using namespace std;
 
+struct box
+{
+	char maker[40];
+	float height;
+	float width;
+	float lenght;
+	float volume;
+};
+
+void who_box(box white_box[], int a) {
+	cout<<"Название коробки: "<< white_box[a].maker<<endl;
+	cout << "Вес коробки: " << white_box[a].maker << endl;
+	cout << "Ширина коробки: " << white_box[a].maker << endl;
+	cout << "Длина коробки: " << white_box[a].maker << endl;
+	cout << "Объем коробки: " << white_box[a].maker << endl;
+}
+
 int main() {
 	setlocale(0, "russian");
 	cout << "Введите кол-во коробок: ";
