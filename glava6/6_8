@@ -1,0 +1,25 @@
+//Глава 6 Задание 8
+
+/*
+Напишите программу, которая открывает текстовый файл, читает его символ
+за символом до самого конца и сообщает количество символов в файле.
+*/
+
+#include <iostream>
+#include<fstream>
+using namespace std;
+
+int main() {
+	setlocale(0, "russian");
+	ifstream OutFile;
+	char filename[50];
+	cin.getline(filename, 50);
+	char wt[100];
+	OutFile.open(filename, ios_base::in);//	ios_base::in - открыть файл для чтения
+	OutFile.getline(wt, 100);
+	OutFile.close();
+	int simvol = strlen(wt);
+	cout <<"Содержимое файла: "<< wt<<endl;
+	cout << "Кол-во символов: " << simvol;
+	return 0;
+}
