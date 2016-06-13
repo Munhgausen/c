@@ -99,9 +99,7 @@ int main() {
 	cout << "Введите кол-во коробок: ";
 	int x;
 	cin >> x;
-	//vector <box> white_box(x);
 	box *white_box = new box[x];
-	//box white_box[5];
 	zapolnenie(white_box, x);
         what(white_box);
 	return 0;
