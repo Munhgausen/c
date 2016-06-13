@@ -20,6 +20,8 @@ struct box
 #include <vector>
 
 using namespace std;
+//Прототип функции
+int test(int, int);
 
 struct box
 {
@@ -63,10 +65,8 @@ void info_box(box white_box[], int limit) {
 	do {
 		cout << "Введите номер необходимой коробки для получения информации(для выхода из программы нажмите 0):";
 		cin >> a;
-		if (a > limit) {
-			cout << "Введено неверное значение. У вас есть только " << limit << " коробки(ок)" << endl;
+		if (test(a, limit) == 1)
 			continue;
-		}
 		else if (a == 0)
 			break;
 		else
@@ -79,10 +79,8 @@ void obem(box white_box[], int limit) {
 	do {
 		cout << "Выберите номер коробки для изменения значения 'Объем'(для выхода в главное меню нажмите 0):";
 		cin >> a;
-		if (a > limit) {
-			cout << "Введено неверное значение. У вас есть только " << limit << " коробки(ок)" << endl;
+		if (test(a, limit) == 1)
 			continue;
-		}
 		else if (a == 0)
 			break;
 		else {
@@ -92,6 +90,21 @@ void obem(box white_box[], int limit) {
 		}
 	} while (a != 0);
 }
+
+int test(int a, int limit) {
+	if (a > 0 && a < limit) {
+		return 0;
+	}
+	else if (a > limit) {
+		cout << "Введено неверное значение. У вас есть тольк " << limit << " коробок" << endl;
+		return 1;
+	}
+	else if (a < 0) {
+		cout << "Введено неверное значение. Номер коробки не может быть отрицательным" << endl;
+		return 1;
+	}
+}
+
 
 void menu(box white_box[],int limit) {
         stop: //метка
