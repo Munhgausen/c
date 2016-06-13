@@ -74,6 +74,25 @@ void info_box(box white_box[], int limit) {
 	} while (a != 0);
 }
 
+void obem(box white_box[], int limit) {
+	int a;
+	do {
+		cout << "Выберите номер коробки для изменения значения 'Объем'(для выхода в главное меню нажмите 0):";
+		cin >> a;
+		if (a > limit) {
+			cout << "Введено неверное значение. У вас есть тольк " << limit << " коробок" << endl;
+			continue;
+		}
+		else if (a == 0)
+			break;
+		else {
+			volume_box(white_box, a - 1);
+			cout << "Преобразование успешно выполнено. Теперь значение параметра Обьем "
+				<< "коробки " << white_box[a - 1].maker << " =" << white_box[a - 1].volume << endl;
+		}
+	} while (a != 0);
+}
+
 void menu(box white_box[],int limit) {
         stop: //метка
 	cout << "Ввод успешно завершен\n Выберите режим:\n 1-Информация о коробке\t"
@@ -84,23 +103,9 @@ void menu(box white_box[],int limit) {
 		info_box(white_box, limit);
 		goto stop;
 	}
-	else if (vibor == 2) {
-		int a;
-		do {
-			cout << "Выберите номер коробки для изменения значения 'Объем'(для выхода в главное меню нажмите 0):";
-			cin >> a;
-			if (a > limit) {
-				cout << "Введено неверное значение. У вас есть тольк "<<limit<<" коробок"<< endl;
-				continue;
-			}
-			else if (a == 0)
-				goto stop;  //возвращение к метке
-			else {
-				volume_box(white_box, a - 1);
-				cout << "Преобразование успешно выполнено. Теперь значение параметра Обьем "
-					<< "коробки " << white_box[a - 1].maker << " =" << white_box[a - 1].volume << endl;
-			}
-		} while (a != 0);
+else if (vibor == 2) {
+		obem(white_box, limit);
+		goto stop;
 	}
 	else if (vibor = 3) {
 		cout << "bye!";
