@@ -37,6 +37,9 @@ void who_box(box white_box[], int a) {
 	cout << "Объем коробки: " << white_box[a].volume << endl;
 }
 
+void volume_box(box white_box[], int a) {
+	white_box[a].volume = white_box[a].lenght + white_box[a].width + white_box[a].height;
+}
 
 int main() {
 	setlocale(0, "russian");
