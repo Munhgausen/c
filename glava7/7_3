@@ -40,7 +40,6 @@ void who_box(box white_box[], int a) {
 void volume_box(box white_box[], int a) {
 	white_box[a].volume = white_box[a].lenght + white_box[a].width + white_box[a].height;
 }
-
 int main() {
 	setlocale(0, "russian");
 	cout << "Введите кол-во коробок: ";
@@ -61,17 +60,33 @@ int main() {
 		cout << "Введите объем коробки " << white_box[i].maker << ": ";
 		cin >> white_box[i].volume;
 	}
-	cout << "Ввод успешно завершен" << endl;
-
-	int a = 1;
-	do {
-		cout << "Введите номер необходимой коробки для получения информации(для выхода из программы нажмите 0):";
-		cin >> a;
-		if (a == 0)
-			break;
-		else
-		who_box(white_box, a - 1);
-	} while (a != 0);
+	cout << "Ввод успешно завершен\n Выберите режим:\n 1-Информация о коробке\t"
+		<< "2-Присвоить новое значение volume\n\n";
+	int vibor;
+	cin >> vibor;
+	if (vibor == 1) {
+		int a = 1;
+		do {
+			cout << "Введите номер необходимой коробки для получения информации(для выхода из программы нажмите 0):";
+			cin >> a;
+			if (a == 0)
+				break;
+			else
+				who_box(white_box, a - 1);
+		} while (a != 0);
+	}
+	else if (vibor == 2) {
+		int a;
+		do {
+			cout << "Выберите номер коробки для изменения значения volume(для выхода из программы нажмите 0):";
+			cin >> a;
+			if (a == 0)
+				break;
+			else
+				volume_box(white_box, a - 1);
+			cout << "Преобразование успешно выполнено" << endl;
+		} while (a != 0);
+	}
 	cout << "bye!";
 	return 0;
 }
