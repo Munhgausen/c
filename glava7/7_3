@@ -120,7 +120,7 @@ void menu(box white_box[],int limit) {
 		obem(white_box, limit);
 		goto stop;
 	}
-	else if (vibor = 3) {
+	else if (vibor == 3) {
 		cout << "bye!";
 	}
 }
