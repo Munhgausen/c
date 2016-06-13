@@ -58,17 +58,8 @@ void zapolnenie(box white_box[], int x){
 
 }
 
-
-int main() {
-	setlocale(0, "russian");
-	cout << "Введите кол-во коробок: ";
-	int x;
-	cin >> x;
-	//vector <box> white_box(x);
-	box *white_box = new box[x];
-	//box white_box[5];
-	zapolnenie(white_box, x);
-        stop: //метка
+void what(box white_box[]) {
+stop:
 	cout << "Ввод успешно завершен\n Выберите режим:\n 1-Информация о коробке\t"
 		<< "2-Присвоить новое значение параметру 'Объем'\n 3-для завершения программы\n\n";
 	int vibor;
@@ -79,7 +70,7 @@ int main() {
 			cout << "Введите номер необходимой коробки для получения информации(для выхода из программы нажмите 0):";
 			cin >> a;
 			if (a == 0)
-				goto stop; //переход к метке
+				goto stop;
 			else
 				who_box(white_box, a - 1);
 		} while (a != 0);
@@ -90,7 +81,7 @@ int main() {
 			cout << "Выберите номер коробки для изменения значения 'Объем'(для выхода в главное меню нажмите 0):";
 			cin >> a;
 			if (a == 0)
-				goto stop; //переход к метке
+				goto stop;
 			else {
 				volume_box(white_box, a - 1);
 				cout << "Преобразование успешно выполнено. Теперь значение параметра Обьем "
@@ -101,6 +92,18 @@ int main() {
 	else if (vibor = 3) {
 		cout << "bye!";
 	}
+}
+
+int main() {
+	setlocale(0, "russian");
+	cout << "Введите кол-во коробок: ";
+	int x;
+	cin >> x;
+	//vector <box> white_box(x);
+	box *white_box = new box[x];
+	//box white_box[5];
+	zapolnenie(white_box, x);
+        what(white_box);
 	return 0;
 }
 
