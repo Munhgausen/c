@@ -103,7 +103,7 @@ void menu(box white_box[],int limit) {
 		info_box(white_box, limit);
 		goto stop;
 	}
-else if (vibor == 2) {
+        else if (vibor == 2) {
 		obem(white_box, limit);
 		goto stop;
 	}
