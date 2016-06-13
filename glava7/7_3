@@ -1,7 +1,20 @@
 //Глава 7 Задание 3
-
-//Не доработанный вариант!!
-
+/*
+Пусть имеется следующее объявление структуры:
+struct box
+{
+    char maker[40];
+    float height;
+    float width;
+    float length;
+    float volume;
+};
+а. Напишите функцию, принимающую структуру box по значению и
+отображающую все ее члены.
+б. Напишите функцию, принимающую адрес структуры box и устанавливающую
+значение члена volume равным произведению остальных трех членов.
+в. Напишите простую программу, которая использует эти две функции.
+*/
 #include <iostream>
 #include <vector>
 
@@ -18,22 +31,26 @@ struct box
 
 void who_box(box white_box[], int a) {
 	cout<<"Название коробки: "<< white_box[a].maker<<endl;
-	cout << "Вес коробки: " << white_box[a].maker << endl;
-	cout << "Ширина коробки: " << white_box[a].maker << endl;
-	cout << "Длина коробки: " << white_box[a].maker << endl;
-	cout << "Объем коробки: " << white_box[a].maker << endl;
+	cout << "Вес коробки: " << white_box[a].height << endl;
+	cout << "Ширина коробки: " << white_box[a].width << endl;
+	cout << "Длина коробки: " << white_box[a].lenght << endl;
+	cout << "Объем коробки: " << white_box[a].volume << endl;
 }
+
 
 int main() {
 	setlocale(0, "russian");
 	cout << "Введите кол-во коробок: ";
 	int x;
 	cin >> x;
-	vector <box> white_box(x);
+	//vector <box> white_box(x);
+	box *white_box = new box[x];
 	//box white_box[5];
-	for (int i = 0; i < 5; i++) {
+	for (int i = 0; i < x; i++) {
 		cout << "Введите название коробки #"<<i+1<<": ";
 		cin >> white_box[i].maker;
+		cout << "Введите вес коробки " << white_box[i].maker << ": ";
+		cin >> white_box[i].height;
 		cout << "Введите ширину коробки " << white_box[i].maker << ": ";
 		cin >> white_box[i].width;
 		cout << "Введите длину коробки " << white_box[i].maker << ": ";
@@ -42,8 +59,17 @@ int main() {
 		cin >> white_box[i].volume;
 	}
 	cout << "Ввод успешно завершен" << endl;
-	cout << "Введите номер необходимой коробки для получения информации: ";
-	int a;
-	cin >> a;
+
+	int a = 1;
+	do {
+		cout << "Введите номер необходимой коробки для получения информации(для выхода из программы нажмите 0):";
+		cin >> a;
+		if (a == 0)
+			break;
+		else
+		who_box(white_box, a - 1);
+	} while (a != 0);
+	cout << "bye!";
 	return 0;
 }
+
