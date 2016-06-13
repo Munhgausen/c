@@ -74,7 +74,7 @@ void info_box(box white_box[], int limit) {
 	} while (a != 0);
 }
 
-void what(box white_box[],int limit) {
+void menu(box white_box[],int limit) {
         stop: //метка
 	cout << "Ввод успешно завершен\n Выберите режим:\n 1-Информация о коробке\t"
 		<< "2-Присвоить новое значение параметру 'Объем'\n 3-для завершения программы\n\n";
@@ -114,7 +114,7 @@ int main() {
 	cin >> x;
 	box *white_box = new box[x];
 	zapolnenie(white_box, x);
-        what(white_box, x);
+        menu(white_box, x);
 	return 0;
 }
 
