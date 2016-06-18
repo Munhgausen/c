@@ -1,0 +1,86 @@
+//Глава 7 задание 6
+
+/*
+Напишите программу, использующую описанные ниже функции:
+ 
+fill_array() принимает в качестве аргумента имя массива элементов типа
+double и размер этого массива. Она приглашает пользователя ввести значения
+double для помещения их в массив. Ввод прекращается при наполнении массива
+либо когда пользователь вводит нечисловое значение и возвращает действительное
+количество элементов;
+ 
+show_array() принимает в качестве аргументов имя массива значений double,
+а также его размер, и отображает содержимое массива;
+ 
+reverse_array() принимает в качестве аргумента имя массива значений double,
+а также его размер, и изменяет порядок его элементов на противоположный.
+ 
+Программа должна использовать эти функции для наполнения массива,
+обращения порядка его элементов, кроме первого и последнего, с последующим
+отображением.
+*/
+
+#include <iostream>
+using namespace std;
+//прототипы
+void Fill_array(double[], int);
+void show_array(double[], int);
+void reverse_array(double[], int );
+
+void Fill_array(double mass[], int limit) {
+	cout << "Введите элементы: ";
+	for (int i = 0; i < limit; i++) {
+		cin >> mass[i];
+		if (!cin)
+			cin.clear();
+		continue;
+		cout << "неверный ввод. Попробуйте снова ";
+	}
+
+}
+
+void reverse_array(double mass[], int limit) {
+	reverse(mass, mass + limit);
+	cout << "Реверс элементов массиа успешно выполнен" << endl;
+}
+
+void show_array(double mass[], int limit) {
+	cout << "Элементы массива: ";
+	for (int i = 0; i < limit; i++) {
+		cout << mass[i]<<" ";
+	}
+	cout << endl;
+}
+
+int main()
+{
+	setlocale(0, "Russian");
+	int x;
+	cout << "Введите кол-во элементов  в массиве: ";
+	cin >> x;
+	double *mass = new double[x];
+	Fill_array(mass, x);
+	int n;
+	metka:
+	cout << "Выберите режим:\n 1-показать массив \t 2-реверс\n 3-выход из программы \n Ваш выбор: ";
+	cin >> n;
+	cout << endl;
+	while (!cin>>n&&(n==1||n==2||n==3)) {
+		cin.clear();
+		continue;
+		cout << "неверный ввод. Попробуйте снова ";
+		break;
+	}
+	if (n == 1) {
+		show_array(mass, x);
+		goto metka;
+	}
+	else if (n == 2) {
+		reverse_array(mass, x);
+		goto metka;
+	}
+	else if (n == 3)
+		cout << "bye!";
+
+	return 0;
+}
