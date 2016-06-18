@@ -29,15 +29,14 @@ void reverse_array(double[], int );
 
 void Fill_array(double mass[], int limit) {
 	cout << "Введите элементы: ";
-	for (int i = 0; i < limit; i++) {
-		cin >> mass[i];
-		if (!cin)
-			cin.clear();
-		continue;
-		cout << "неверный ввод. Попробуйте снова ";
+	int i = 0;
+	while (i < limit&&cin >> mass[i])
+	{
+		cout << endl;
+		i++;
+		cout << "Введите следующий элемент: ";
 	}
-
-}
+	}
 
 void reverse_array(double mass[], int limit) {
 	reverse(mass, mass + limit);
