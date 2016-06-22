@@ -8,7 +8,7 @@ int main()
 	int a,b,h;
 	double f;
 	cin >> a >> b >> h;
-	cout << "арг\t" << "функция\n";
+	cout << "арг-т\t" << "функция\n";
 	while (a <= b){
 		f = sin(a) * sin(a);
 		cout << a << "\t" << f << endl;
