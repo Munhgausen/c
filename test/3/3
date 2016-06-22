@@ -1,0 +1,19 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	setlocale(0, "Russian");
+	int a,b,h;
+	double f;
+	cin >> a >> b >> h;
+	cout << "арг\t" << "функ\n";
+	while (a <= b){
+		f = sin(a) * sin(a);
+		cout << a << "\t" << f << endl;
+		a = a + h;
+	}
+
+return 0;
+}
