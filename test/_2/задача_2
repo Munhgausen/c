@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	setlocale(0, "Russian");
+	int x;
+	cin >> x;
+	switch (x)
+	{
+	case 1: //если оценка 1
+	{
+		cout << "плохо";
+		break;
+	}
+	case 2: //если оценка 2
+	{
+		cout << "неудовлетворительно";
+		break;
+	}
+	case 3:
+	{
+		cout << "удовлетворительно";
+		break;
+	}
+	case 4:
+	{
+		cout << "хорошо";
+		break;
+	}
+	case 5:
+	{
+		cout << "отлично";
+		break;
+	}
+	}
+
+	return 0;
+}
