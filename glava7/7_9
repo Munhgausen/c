@@ -1,0 +1,108 @@
+//Глава 7 задание 9
+
+/*
+Следующее упражнение позволит попрактиковаться в написании функций,
+работающих с массивами и структурами. Ниже представлен каркас программы.
+Дополните его функциями, описанными в комментариях.
+ 
+getinfo() принимает два аргумента: указатель на первый элемент массива
+структур student и значение int, представляющее количество элементов в
+массиве. Функция запрашивает и сохраняет данные о студентах. Ввод
+прекращается либо после наполнения массива, либо при вводе пустой строки
+в качестве имени студента. Функция возвращает действительное количество
+введенных элементов.
+int getinfо(student pa[], int n);
+ 
+display1() принимает в качестве аргумента структуру student и отображает
+ее содержимое.
+void displayl(student st);
+ 
+display2() принимает адрес структуры student в качестве аргумента
+и отображает ее содержимое.
+void display2(const student * ps);
+ 
+display3() принимает указатель на первый элемента массива
+структур student и количество элементов в этом массиве и
+отображает содержимое всех структур в массиве.
+void display3(const student pa[], int n) ;
+*/
+
+
+#include <iostream>
+
+using namespace std;
+
+const int SLEN = 30;
+
+struct student {
+	char fullname[SLEN];
+	char hobby[SLEN];
+	int ooplevel;
+};
+
+//прототипы
+int getinfo(student[], int);
+void display1(student);
+void display2(const student*);
+void display3(const student[], int);
+
+
+int getinfo(student ptr_su[], int x) {
+	int chislo = 0;
+	for (int i = 0; i < x; i++) {
+		cout << "Введите имя студента: ";
+		//cin >> ptr_su[i].fullname;
+		cin >> ptr_su->fullname;
+		cout << "\nВведите хобби студента: ";
+		//cin >> ptr_su[i].hobby;
+		cin >> ptr_su->hobby;
+		cout << "\n Введите ooplevel студента: ";
+		//cin >> ptr_su[i].ooplevel;
+		cin >> ptr_su->ooplevel;
+		ptr_su++;
+		chislo++;
+	}
+	return chislo;
+}
+
+void display1(student st){
+	cout << "Имя студента: " << st.fullname;
+	cout << "\nХобби студента: " << st.hobby;
+	cout << "\nooplevel студента: " << st.ooplevel;
+}
+
+void display2(const student * pt){
+	cout << "Имя студента: " << pt->fullname << endl;
+	cout << "Хобби студента: " << pt->hobby << endl;
+	cout << "ooplevel студента: " << pt->ooplevel << endl;
+}
+
+void display3(const student pa[], int n) {
+	for (int i = 0; i < n; i++) {
+		cout << "Имя студента: " << pa->fullname << endl;
+		cout << "Хобби студента: " << pa->hobby << endl;
+		cout << "ooplevel студента: " << pa->ooplevel << endl;
+	pa++;
+}
+}
+
+int main()
+{
+	setlocale(0, "Russian");
+	cout << "Enter  class size: ";
+	int class_size;
+	cin >> class_size;
+	while (cin.get() != '\n')
+		continue;
+	student * ptr_stu = new student[class_size];
+	int entered = getinfo(ptr_stu, class_size);
+	for (int i = 0; i < entered; i++) {
+		display1(ptr_stu[i]);
+		display2(&ptr_stu[i]);
+	}
+	display3(ptr_stu, entered);
+	delete[]ptr_stu;
+	cout << "Done\n";
+
+	return 0;
+}
