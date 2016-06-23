@@ -1,0 +1,17 @@
+//Глава 7 задание 10
+
+#include<iostream>;
+
+using namespace std;
+
+double calculate(double a, double b, double(*pa)(double n, double z)) {
+
+}
+
+
+int main() {
+
+
+
+	return 0;
+}
