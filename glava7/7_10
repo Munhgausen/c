@@ -1,17 +1,29 @@
 //Глава 7 задание 10
 
 #include<iostream>;
-
 using namespace std;
 
 double calculate(double a, double b, double(*pa)(double n, double z)) {
-
+	double result = (*pa)(a, b);
+	return result;
 }
 
+double add(double x, double z) {
+
+	return x + z;
+}
+
+double add_umn(double x, double z) {
+	return x*z;
+}
 
 int main() {
-
-
+	setlocale(0, "russian");
+	cout << "Введите 2 числа: ";
+	double x, z;
+	cin >> x >> z;
+	cout << "Сумма чисел равна: " << calculate(x, z, add) << endl;
+	cout << "Произведение чисел равно: " << calculate(x, z, add_umn);
 
 	return 0;
 }
