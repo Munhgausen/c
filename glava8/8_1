@@ -1,1 +1,38 @@
-test
+//глава 8 задание 1
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+int flag = 0;
+
+void myfunction(string & , int &);
+
+int main()
+{
+	setlocale(0, "russian");
+	string name1 = "Это строка №1";
+	int x;
+	while(flag!=100) {
+		cout << "Вызвать функцию еще раз?\n Введите любое число. Для выхода из программы введите(1) ";
+		cin >> x;
+		if (x == 1)
+			break;
+		myfunction(name1, flag);
+	} 
+	return 0;
+	}
+
+void  myfunction(string & x, int & z) {
+	if (flag != 0) {
+		for (int i = 0; i < z; i++) {
+			cout << x<<endl;
+		}
+		z++;
+	}
+	else {
+		cout << x<<endl;
+		z++;
+		z++;
+	}
+}
