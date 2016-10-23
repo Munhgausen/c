@@ -1,0 +1,96 @@
+/*
+Пять доярок обеспечили в течение недели надои молока, характеризующиеся
+следующими показателями по дням, в процентах к установленной ежедневной норме:
+Иванова Р11…Р17, Петрова Р21…Р27, Сидорова Р31…Р37, Николаева Р41…Р47, Михайлова
+Р51…Р57, где первый индекс соответствует «порядковому номеру» доярки, второй- дню
+недели. Разработать программу расчета среднесуточных надоев молока для каждой
+доярки, среднесуточного надоя молока для всей бригады, определения номера доярки
+получившей максимальный среднесуточный надой молока
+*/
+
+
+
+#include <iostream>
+#include <math.h>
+#include <iomanip>
+#include <conio.h>
+
+using namespace std;
+
+void CreateArray(double **);
+void DeleteArray(double**);
+void SrednDoyar(double**);
+
+
+
+
+
+int main() {
+	setlocale(0, "Russian");
+	double **a = new double*[5];
+	for (int i = 0; i < 5; i++) {
+		a[i] = new double[7];
+	}
+	CreateArray(a);
+	SrednDoyar(a);
+	DeleteArray(a);
+	_getch();
+	return 0;
+}
+
+void CreateArray(double **massiv) {
+	for (int i = 0; i < 5; i++) {
+		cout << "Введите суточный надой доярки номер " << i + 1 << " за каждый из 7 дней через пробел\n";
+		for (int j = 0; j < 7; j++) {
+
+				cin >> massiv[i][j];
+				if (!cin.good()) {
+					cout << "Неверный ввод.\n";
+					_getch();
+					exit(1);
+				}
+				else if (massiv[i][j] < 0) {
+					cout << "Значение не может быть отрицательным.\n";
+					_getch();
+					exit(1);
+				}
+
+
+			
+			/*	cin >> massiv[i][j];
+				if (cin.good() == false) {
+					cin.clear();
+					cout << "Неверный ввод. Попробуйте снова";
+				} */
+	
+		}
+	}
+}
+
+void DeleteArray(double **mass) {
+	for (int i = 0; i < 5; i++) {
+		delete mass[i];
+	}
+	delete mass;
+}
+
+void SrednDoyar(double **mass) {
+	double summ = 0;
+	double all = 0;
+	double max = 0;
+	int nomer;
+	for (int i = 0; i < 5; i++) {
+		for (int j = 0; j < 7; j++) {
+			summ += mass[i][j];
+		}
+		cout << "Средний надой для доярки " << i+1 << " = " <<setprecision(2)<< summ / 7<<endl;
+		all += summ;
+		if (summ/7 > max) {
+			max = summ/7;
+			nomer = i;
+		}
+		summ = 0;
+	}
+	cout << "Cредний надой для бригады за неделю = " << setprecision(2) << all / 35<<endl;
+	cout << " Максимальный средний надой за неделю у доярки номер "<<nomer+1<<" равен "<< setprecision(2) << max;
+}
