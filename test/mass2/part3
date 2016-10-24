@@ -1,0 +1,30 @@
+#include <iostream>
+#include <math.h>
+#include <iomanip>
+#include <conio.h>
+
+using namespace std;
+int main() {
+	setlocale(0, "Russian");
+	double a, b, p, r;
+	int n, k, l;
+	cout << "Введите суточную норму сена для коровы в кг: ";
+	cin >> a;
+	cout << "Введите суточную норму сена для лошади в кг: ";
+	cin >> b;
+	cout << "Введите кол-во доступного сена: ";
+	cin >> p;
+	cout << "Введите кол-во лошадей";
+	cin >> l;
+	cout << "Введите кол-во дней";
+	cin >> n;
+	if (p < b*l*n)
+		cout << "Кол-ва сена недостаточно";
+	double s = p - (b*l*n); //кол-во сена для доступное для коров
+	k =(int)( s / (n*a));
+	cout << "Можно прокормить " << k << " коров";
+	r = p - ((a*k + b*l)*n);
+	cout << "Кол-во оставшегося сена: " << r;
+	_getch();
+	return(0);
+}
