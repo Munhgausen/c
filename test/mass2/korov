@@ -1,0 +1,58 @@
+#include <iostream>
+#include <math.h>
+#include <iomanip>
+#include <conio.h>
+
+using namespace std;
+
+int senokor(int p, int b, int l, int n, int a);
+void proverka(int p, int b, int l, int n);
+int ostatok(int p, int l, int n, int a, int k, int b);
+
+
+
+int main() {
+	setlocale(0, "Russian");
+	double a, b, p, r, n, k, l;
+	cout << "Введите суточную норму сена для коровы в кг: ";
+	cin >> a;
+	cout << "Введите суточную норму сена для лошади в кг: ";
+	cin >> b;
+	cout << "Введите кол-во доступного сена: ";
+	cin >> p;
+	cout << "Введите кол-во лошадей";
+	cin >> l;
+	cout << "Введите кол-во дней";
+	cin >> n;
+	proverka( p, b,l, n);
+	k = senokor(p, b, l, n,a);
+	cout << "Можно прокормить " << k << " коров";
+	r = (p, l, n, a, k, b);
+	cout << "Кол-во оставшегося сена: " << r;
+	_getch();
+	return(0);
+}
+
+
+
+//проверяет хватит ли сена на коров
+void proverka(int p, int b, int l, int n)
+{
+	if (p < b*l*n)
+		cout << "Кол-ва сена недостаточно";
+	_getch();
+	exit(1);
+
+}
+
+//Cчитает сено доступное для коров и сколько коров можно прокормить
+int senokor(int p, int b, int l, int n, int a) {
+	double s=  p - (b*l*n); //кол-во сена для доступное для коров
+	double k = (int)(s / (n*a));
+	return k;
+}
+
+int ostatok(int p, int l, int n, int a, int k, int b) {
+	double r = p - ((a*k + b*l)*n);
+	return r;
+}
