@@ -1,0 +1,80 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+string Cesar(string frase, int n) {
+	string result;
+	for (int i = 0; i<(frase.length()); i++) {
+		//проверка пробелов
+		if ((char)((frase[i] == ' '))) {
+			result = result + ' ';
+			continue;
+		}
+		//проверка варианта выхода за пределы алфавита
+		if ((char)((frase[i]+n > 'z'))) {
+			while (frase[i] != 'z') {
+				frase[i]++;
+				n--;
+			}
+			frase[i] = 'a';
+			while (n>1)
+			{
+				frase[i]++;
+				n--;
+			}
+			result = result + (char)frase[i];
+		}
+		//обычный вариант
+		else result = result + (char)((frase[i] + n));
+	}
+	return result;
+}
+
+string NormalText(string frase, int n)
+{
+	string result;
+	for (int i = 0; i<(frase.length()); i++) {
+		if ((char)((frase[i] == ' '))) {
+			result = result + ' ';
+			continue;
+		}
+		//проверка варианта выхода за пределы алфавита
+		if ((char)((frase[i] - n < 'a'))) {
+			while (frase[i] != 'a') {
+				frase[i]--;
+				n--;
+			}
+			frase[i] = 'z';
+			while (n>1)
+			{
+				frase[i]--;
+				n--;
+			}
+			result = result + (char)frase[i];
+		}
+		else result = result + (char)((frase[i] - n));
+	}
+	return result;
+}
+
+int main() {
+	setlocale(LC_ALL, "Russian");
+	int n; //сдвиг на n символов
+	cin >> n;
+	string frase = "I have a dreaz";
+	string result;
+	cout << "\nИсходная фраза: " << frase;
+	result = Cesar(frase, n);
+	cout << "\nРезультат: " << result;
+	result = NormalText(result, n);
+	cout << "\nВозращаем прежний вид: "<<result;
+
+	string name;
+	getline(cin, name);
+	cout << endl;
+	char full[50];
+	cin.getline(full, 50);
+	cout << endl<<full;
+	
+	return 0;
+}
