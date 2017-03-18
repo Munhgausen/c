@@ -38,8 +38,11 @@ string NormalText(string frase, int n)
 			result = result + ' ';
 			continue;
 		}
+		int fggg = frase[i] - n;
 		//проверка варианта выхода за пределы алфавита
-		if ((char)((frase[i] - n < 'a'))) {
+		if ((char)((frase[i] - n < 'a' && frase[i] - n >'Z'))) {
+			int a = frase[i] - n;
+			int b = 'a';
 			while (frase[i] != 'a') {
 				frase[i]--;
 				n--;
@@ -52,7 +55,8 @@ string NormalText(string frase, int n)
 			}
 			result = result + (char)frase[i];
 		}
-		else result = result + (char)((frase[i] - n));
+		else
+		result = result + (char)((frase[i] - n));
 	}
 	return result;
 }
@@ -61,7 +65,7 @@ int main() {
 	setlocale(LC_ALL, "Russian");
 	int n; //сдвиг на n символов
 	cin >> n;
-	string frase = "I have a dream and letter z";
+	string frase = "I have a dream and letter z and Z";
 	string result;
 	cout << "\nИсходная фраза: " << frase;
 	result = Cesar(frase, n);
